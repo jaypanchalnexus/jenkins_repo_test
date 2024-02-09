@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %} Question: {{ question.question }} {% endblock %}
+{% block body %}
+
+    <div class="row mt-4">
+        <div class="col-sm-5 col-md-8 col-12 pb-4">
+            <h1>Question: {{ question.question }}</h1>
+            {% for tag in question.tags %}
+                <span class="badge bg-info">{{ tag.name }}</span>
+            {% endfor %}
+
+        </div>
+        <div class="col-sm-5 col-md-4 col-12">
+            <a class="btn btn-success mt-2" href="{{ path('question-list') }}">Back</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5 col-md-8 col-12 pb-4">
+
+            {% for answer in answers %}
+            <div class="comment mt-4 text-justify w-100">
+                <img src="{{ asset('images/cat.jpg') }}" alt="" class="rounded-circle" width="40" height="40">
+                <h4>{{ answer.username}}</h4>
+
+                <p class="mt-4">{{ answer.content }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success" href="{{ path('add-answer',{question: question.id})  }}">Add Answer</a>
+        </div>
+    </div>
+{% endblock %}

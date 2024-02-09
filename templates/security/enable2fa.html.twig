@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="text-light">Please scan this QR code for 2 factor authentication.</h2>
+    <img src="{{ path('app_qr_code') }}">
+{% endblock %}
+
+{% block title %}
+Enabl 2FA
+{% endblock %}
+
